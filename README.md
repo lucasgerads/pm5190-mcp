@@ -1,0 +1,64 @@
+# pm5190-mcp
+
+MCP server for controlling the Philips PM5190 LF synthesizer over GPIB.
+
+Connects via an [AR488](https://github.com/Twilight-Logic/AR488) Arduino-based USB-to-GPIB adapter.
+
+## Requirements
+
+- Arduino Nano with AR488 firmware on `/dev/ttyUSB0`
+- PM5190 GPIB address set to 4 (DIP switches on the bottom of the unit)
+
+## Usage
+
+### Manual start
+
+```bash
+uv run python server_stdio.py
+```
+
+### Auto-connect via environment variables
+
+```bash
+PM5190_PORT=/dev/ttyUSB0 PM5190_ADDR=4 uv run python server_stdio.py
+```
+
+### Claude Code configuration
+
+Add to `.mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "pm5190": {
+      "type": "stdio",
+      "command": "uv",
+      "args": ["--directory", "/home/lucas/dev/gpib/pm5190-mcp", "run", "python", "server_stdio.py"],
+      "env": {
+        "PM5190_PORT": "/dev/ttyUSB0",
+        "PM5190_ADDR": "4"
+      }
+    }
+  }
+}
+```
+
+## Available tools
+
+| Tool | Description |
+|------|-------------|
+| `pm5190_connect` | Connect to the AR488 adapter |
+| `pm5190_disconnect` | Disconnect |
+| `pm5190_status` | Connection status and firmware version |
+| `pm5190_configure` | Set frequency, amplitude, DC offset and waveform in one command |
+| `pm5190_set_frequency` | Set frequency only |
+| `pm5190_set_amplitude` | Set amplitude and DC offset |
+| `pm5190_set_waveform` | Set waveform type |
+
+## Environment variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `PM5190_PORT` | — | Serial port (auto-connects on startup if set) |
+| `PM5190_BAUD` | `115200` | Baud rate |
+| `PM5190_ADDR` | `4` | GPIB address |
