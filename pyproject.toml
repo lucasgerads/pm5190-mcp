@@ -1,0 +1,13 @@
+[project]
+name = "pm5190-mcp"
+version = "0.1.0"
+description = "MCP server for controlling the Philips PM5190 LF synthesizer via AR488 serial-to-GPIB"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "mcp[cli]>=1.27.0",
+    "pyserial>=3.5",
+]
+
+[project.scripts]
+pm5190-mcp = "server_stdio:main"

@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "pm5190": {
+      "type": "stdio",
+      "command": "uv",
+      "args": ["--directory", "/home/lucas/dev/gpib/pm5190-mcp", "run", "python", "server_stdio.py"],
+      "env": {
+        "PM5190_PORT": "/dev/ttyUSB0",
+        "PM5190_ADDR": "4"
+      }
+    }
+  }
+}
