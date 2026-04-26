@@ -2,6 +2,8 @@
 
 MCP server for controlling the Philips PM5190 LF synthesizer over GPIB.
 
+![Demo](https://raw.githubusercontent.com/lucasgerads/pm5190-mcp/main/docu/assets/demo-pm5190-small.gif)
+
 Connects via any Prologix-compatible USB-to-GPIB adapter (e.g. [AR488](https://github.com/Twilight-Logic/AR488), Prologix GPIB-USB).
 
 ## Requirements
