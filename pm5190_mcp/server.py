@@ -39,10 +39,10 @@ def pm5190_connect(
     baud: int = 115200,
     gpib_addr: int = 4,
 ) -> str:
-    """Connect to the PM5190 via an AR488 serial-to-GPIB adapter.
+    """Connect to the PM5190 via a Prologix-compatible USB-to-GPIB adapter.
 
     Args:
-        port:       Serial port the AR488 is on, e.g. /dev/ttyUSB0
+        port:       Serial port the adapter is on, e.g. /dev/ttyUSB0
         baud:       Baud rate (default 115200)
         gpib_addr:  GPIB address of the PM5190 (default 4, set via DIP switches on unit bottom)
     """

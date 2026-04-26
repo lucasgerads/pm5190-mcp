@@ -2,11 +2,11 @@
 
 MCP server for controlling the Philips PM5190 LF synthesizer over GPIB.
 
-Connects via an [AR488](https://github.com/Twilight-Logic/AR488) Arduino-based USB-to-GPIB adapter.
+Connects via any Prologix-compatible USB-to-GPIB adapter (e.g. [AR488](https://github.com/Twilight-Logic/AR488), Prologix GPIB-USB).
 
 ## Requirements
 
-- Arduino Nano with AR488 firmware on `/dev/ttyUSB0`
+- Prologix-compatible USB-to-GPIB adapter
 - PM5190 GPIB address set to 4 (DIP switches on the bottom of the unit)
 
 ## Usage
@@ -48,7 +48,7 @@ Add to `.mcp.json`:
 
 | Tool | Description |
 |------|-------------|
-| `pm5190_connect` | Connect to the AR488 adapter |
+| `pm5190_connect` | Connect to the USB-to-GPIB adapter |
 | `pm5190_disconnect` | Disconnect |
 | `pm5190_status` | Connection status and firmware version |
 | `pm5190_configure` | Set frequency, amplitude, DC offset and waveform in one command |
