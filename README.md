@@ -11,16 +11,17 @@ Connects via an [AR488](https://github.com/Twilight-Logic/AR488) Arduino-based U
 
 ## Usage
 
-### Manual start
+### From PyPI (recommended)
 
 ```bash
-uv run python server_stdio.py
+uvx pm5190-mcp
+PM5190_PORT=/dev/ttyUSB0 PM5190_ADDR=4 uvx pm5190-mcp
 ```
 
-### Auto-connect via environment variables
+### From source
 
 ```bash
-PM5190_PORT=/dev/ttyUSB0 PM5190_ADDR=4 uv run python server_stdio.py
+PM5190_PORT=/dev/ttyUSB0 PM5190_ADDR=4 uv run pm5190-mcp
 ```
 
 ### Claude Code configuration
@@ -32,8 +33,8 @@ Add to `.mcp.json`:
   "mcpServers": {
     "pm5190": {
       "type": "stdio",
-      "command": "uv",
-      "args": ["--directory", "/home/lucas/dev/gpib/pm5190-mcp", "run", "python", "server_stdio.py"],
+      "command": "uvx",
+      "args": ["pm5190-mcp"],
       "env": {
         "PM5190_PORT": "/dev/ttyUSB0",
         "PM5190_ADDR": "4"

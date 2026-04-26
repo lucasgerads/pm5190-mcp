@@ -3,7 +3,7 @@
 import os
 import threading
 from mcp.server.fastmcp import FastMCP
-from pm5190 import PM5190, PM5190Error
+from pm5190_mcp.instrument import PM5190, PM5190Error
 
 mcp = FastMCP("pm5190")
 
@@ -84,7 +84,7 @@ def pm5190_configure(
         freq_hz:   Frequency in Hz (range: 0.001 – 2000000)
         vpp:       Output amplitude peak-to-peak in volts (range: 0.001 – 19.9)
         dc:        DC offset in volts (default 0.0; range depends on amplitude)
-        waveform:  Waveform type: 1=sine, 2=square, 3=triangle, 4=sine/AM ext, 5=triangle/AM ext
+        waveform:  Waveform type: 1=sine, 2=square, 3=square, 4=sine/AM ext, 5=triangle/AM ext
 
     The maximum DC offset depends on the amplitude range:
       - Vpp < 0.2 V:  max |DC| ≈ 0.1 V
@@ -141,3 +141,7 @@ def pm5190_set_waveform(waveform: int) -> str:
         cmd = _gen.set_waveform(waveform)
         return f"Waveform set to {PM5190.WAVEFORMS[waveform]} — sent: {cmd}<ETX>"
     return _run(_fn)
+
+
+def main():
+    mcp.run(transport="stdio")
