@@ -7,7 +7,7 @@ Connects via any Prologix-compatible USB-to-GPIB adapter (e.g. [AR488](https://g
 ## Requirements
 
 - Prologix-compatible USB-to-GPIB adapter
-- PM5190 GPIB address set to 4 (DIP switches on the bottom of the unit)
+- PM5190 GPIB address configured via DIP switches on the bottom of the unit
 
 ## Usage
 
