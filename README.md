@@ -44,6 +44,10 @@ Add to `.mcp.json`:
 }
 ```
 
+The GPIB address is set via DIP switches on the bottom of the unit:
+
+![Setting the GPIB address](https://raw.githubusercontent.com/lucasgerads/pm5190-mcp/main/docu/assets/SettingAddress.png)
+
 ## Available tools
 
 | Tool | Description |
